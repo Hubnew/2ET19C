@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,22 +69,30 @@ namespace ConsoleApp9
             wypisuje n − 1 różnych, mniejszych on n liczb pomijając przy tym swoje tajemnicze x. Napisz program,
             który pozwoli sprawdzić, jaką liczbę x wybrał sobie Bajtuś UwU OwO.*/
 
-            int n, s, k;
-            Console.WriteLine("Podaj liczbę do 9: ");
-            n = int.Parse(Console.ReadLine());
-            s = 0;
-            k = 0;
-            for (int i = 1; i < n; i++)
-            {
-                s += i;
-            }
-            for (int i = 1; i < n; i++)
-            {
-                k = int.Parse(Console.ReadLine());
-                k = s - n;
-            }
-            Console.WriteLine(k);
+            /*            int n = int.Parse(Console.ReadLine());
+                        int suma = n * (n + 1) / 2;
+                        int liczba;
+                        n = int.Parse(Console.ReadLine());
+                        Console.WriteLine($"Ok daj liczbę {n-1} a ja zgadnę jaka to liczba" );
+                        for (int i = 0; i < n-1; i++)
+                        {
+                            liczba = int.Parse(Console.ReadLine());
+                            suma = suma - liczba;
+                        }
+                        Console.WriteLine($"Wybrałeś {suma}");*/
 
+            int n = int.Parse(Console.ReadLine());
+            int x = 1;
+            int y = 2;
+            int z;
+            Console.WriteLine(x);
+            for (int i = 1; i < n-2; i++)
+            {
+                Console.WriteLine(y);
+                z = y;
+                y = x + y;
+                x = z;
+            }
         }
     }
 }
