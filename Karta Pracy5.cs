@@ -60,6 +60,44 @@ namespace ConsoleApp13
 
             return alist;
         }
+                public static int Zad2(int n)
+        {
+            int suma_cyfr = 0;
+            int cyrfa;
+            while (n > 0){
+                cyrfa = n% 10;
+                suma_cyfr += cyrfa;
+                n = n / 10;
+            }
+            return suma_cyfr;
+        }
+
+        public static int Silnia(int n)
+        {
+            if (n == 0)
+            {
+                return 1;
+            }
+            return n * Silnia(n - 1);
+        }
+        public static int SilniaItera(int n)
+        {
+            int silnia = 1;
+            for(int i = 1; i <= n; i++)
+            {
+                silnia*=i;
+            }
+            return silnia;
+        }
+
+        public static int Fibo(int n)
+        {
+            if (n < 2)
+            {
+                return 1;
+            }
+            return Fibo(n - 1) + Fibo(n - 2);
+        }
         static void Main(string[] args)
         {
             //zad 1 kp1z1
@@ -90,6 +128,11 @@ namespace ConsoleApp13
             {
                 Console.WriteLine(a+ " ");
             }
+                        /*            int n = int.Parse(Console.ReadLine());
+                        Console.WriteLine(Zad2(n));*/
+           /* int n = int.Parse(Console.ReadLine());
+            Console.WriteLine(Fibo(n));*/
+            //Zmienić ^ żeby działy inne
 
         }
     }
