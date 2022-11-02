@@ -122,7 +122,7 @@ namespace ConsoleApp25
             {
                 for (int j = 1; j < n + 1; j++)
                 {
-                    if (j + i == n-1 ||) Console.Write("*");
+                    if (j + i == n/2+2 || i+j==3*n/2+1 ||Math.Abs(i-j)==n/2 ) Console.Write("*");
                     else Console.Write(" ");
                 }
                 Console.WriteLine();
