@@ -1,74 +1,87 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-public class Rower
+namespace ConsoleApp7
 {
-    private Producent producent;
-    private string kolor;
-    private Material material;
-    public void jedz()
+    public class Rower
     {
-        Console.WriteLine("Wroooom");
-    }
-    public void setColor(string akolor)
-    {
-        this.kolor = akolor;
-    }
-    public string getColor()
-    {
-
-    }
-
-    public class Producent
-    {
-        private string nazwa;
-        private string nip;
-        public string getNazwa(string anazwa)
+        private Producent producent;
+        private string kolor;
+        private Maretrial material;
+        public void jedz()
         {
-            this.nazwa = anazwa;
+            Console.WriteLine("Wroooom");
         }
-        public string getNip(string anip)
+        public void setColor(string akolor)
         {
-            this.nip = anip;
+            this.kolor = akolor;
         }
-        public void setNazwa()
+        public void setMaterial(Maretrial amaterial)
         {
-
+            this.material = amaterial;
+        }
+        public string getColor()
+        {
+            return kolor;
+        }
+        public Rower(Producent nazwa)
+        {
+            producent = nazwa;
+            
         }
     }
-    public class Maretrial
-    {
-        private string typ;
-        private int id;
-        private double cena;
-        public void setTyp()
+        public class Producent
         {
-
+            private string nazwa;
+            private string nip;
+            public string getNazwa(string nazwa)
+            {
+            return "Nazwa";
+            }
+            public string getNip(string anip)
+            {
+                return anip;
+            }
+            public void setNazwa(string anazwa)
+            {
+                this.nazwa = anazwa;
+            }
         }
-        public string getTyp()
+        public class Maretrial
         {
-
+            private string typ;
+            private int id;
+            private double cena;
+            public void setTyp(string atyp)
+            {
+                this.typ = atyp;
+            }
+            public string getTyp()
+            {
+                return this.typ;
+            }
+            public double getCena()
+            {
+                return cena;
+            }
+            public void setID( int aid)
+            {
+                this.id = aid;
+            }
         }
-        public double getCena()
+
+        internal class Program
         {
-
-        }
-        public void setID()
-        {
-
-        }
-    }
-
-    public class Program
-    {
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Maretrial material = new Maretrial();
+            Producent prod = new Producent();
+            Rower rower = new Rower(prod);
+            rower.setMaterial(material);
+
         }
     }
+}
