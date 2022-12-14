@@ -1,78 +1,101 @@
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Management.Instrumentation;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ConsoleApp7
 {
-  class Produkt {
-    public string nazwa;
-    public double cena;
-    public string opis;
-    public void getNazwa() 
+    class Produkt
     {
-      Console.WriteLine("nazwa?");
+        public string nazwa;
+        public double cena;
+        public string opis;
+        public void getNazwa(string anazwa)
+        {
+            this.nazwa = anazwa;
+        }
+        public void getcena(double acena)
+        {
+            this.cena=acena;
+        }
+        public void getOpis(string aopis)
+        {
+            this.opis = aopis;
+        }
+        public void produkt(string anazwa, double acena, string aopis)
+        {
+            this.nazwa = anazwa;
+            this.cena = acena;
+            this.opis = aopis;
+        }
+        
     }
-    public void getcena() 
-    {
-      Console.WriteLine("cena?");
-    }
-    public void getOpis() 
-    {
-      Console.WriteLine("opis?");
-    }
-    public void Produkt(string nazwa,double cena,string opis)
-    {
-      Console.WriteLine("produkt?");
-    }
-  }
 
-  class Profil {
-    public string imie;
-    public string drugieImie;
-    public string nazwisko;
-    public void getImie()
+    class Profil
     {
-      Console.WriteLine("imie?");
+        public string imie;
+        public string drugieImie;
+        public string nazwisko;
+        public void getImie()
+        {
+            Console.WriteLine("imie?");
+        }
+        public void getNazwisko()
+        {
+            Console.WriteLine("nazwisko?");
+        }
     }
-    public void getNazwisko()
-    {
-      Console.WriteLine("nazwisko?");
-    }
-  }
 
-  class Uzytkownik {
-    public string login;
-    public string haslo;
-    public Profil profil;
-    public void loguj()
+    class Uzytkownik
     {
-      Console.WriteLine("loguj?");
+        public string login;
+        public string haslo;
+        public Profil profil;
+        public void loguj()
+        {
+            Console.WriteLine("loguj?");
+        }
+        public Uzytkownik(Profil imie)
+        {
+            profil = imie;
+        }
     }
-  }
 
-  class Koszyk {
-    public int id;
-    public Produkt produkt;
-    public Uzytkownik uzytkownik;
-    public int getId()
+    class Koszyk
     {
-      return id;
+        public int id;
+        public Produkt produkt;
+        public Uzytkownik uzytkownik;
+        public int getId()
+        {
+            return id;
+        }
+        public void operation()
+        {
+            
+        }
+        public Koszyk(Produkt nazwa)
+        {
+            produkt = nazwa;
+        }
+        public void setUzytkownik(Uzytkownik auzytkownik)
+        {
+            this.uzytkownik = auzytkownik;
+        }
     }
-    public void operation() {
-      Console.WriteLine("operacja????");
-    }
-  }
 
-  
-  class Program
-    {
+
+    internal class Program
+        {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Profil prof = new Profil();
+            Produkt prod = new Produkt();
+            Uzytkownik user = new Uzytkownik(prof);
+            Koszyk kosz = new Koszyk(prod);
+
         }
     }
 }
